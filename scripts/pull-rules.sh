@@ -4,13 +4,13 @@ STACK=$1
 REPO="https://github.com/d3m1s22/ai-agent-rules.git"
 
 if [ -z "$STACK" ]; then
-  echo "Errore: Specifica lo stack desiderato."
-  echo "Uso: pull-rules [react-web|react-native|node-backend]"
+  echo "Error: Specify the desired stack."
+  echo "Usage: pull-rules [react-web|react-native|node-backend]"
   exit 1
 fi
 
 TEMP_DIR=$(mktemp -d)
-echo "Scaricando le regole base (Global) e specifiche ($STACK)..."
+echo "Downloading the base (Global) and stack-specific rules ($STACK)..."
 
 # 1. Clona la struttura del repository senza scaricare i file
 git clone --depth 1 --filter=blob:none --sparse "$REPO" "$TEMP_DIR" > /dev/null 2>&1
@@ -28,7 +28,7 @@ fi
 if [ -d "$TEMP_DIR/$STACK" ]; then
   cp -a "$TEMP_DIR/$STACK/." .
 else
-  echo "Errore: Lo stack '$STACK' non è presente nel repository."
+  echo "Error: The stack '$STACK' is not present in the repository."
   rm -rf "$TEMP_DIR"
   exit 1
 fi
@@ -36,4 +36,4 @@ fi
 # 5. Pulizia
 rm -rf "$TEMP_DIR"
 
-echo "Successo! Il contesto multi-agente per $STACK (+ Global Rules) è stato applicato al progetto."
+echo "Success! The multi-agent context for $STACK (+ Global Rules) has been applied to the project."
