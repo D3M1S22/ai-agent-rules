@@ -1,0 +1,11 @@
+---
+description: Test-Driven Development (TDD), Unit, and Integration testing rules
+globs: "**/*.test.ts, **/*.spec.ts, **/tests/**"
+alwaysApply: true
+---
+# Testing & QA Standards
+
+- **Framework**: Use Vitest for unit testing and Supertest for API integration tests.
+- **Methodology**: Follow the Arrange-Act-Assert (AAA) pattern strictly.
+- **Mocking**: Mock external dependencies (Stripe, AWS, Mailgun) and database calls using dependency injection or tools like `msw` (Mock Service Worker). Do not hit real databases in unit tests.
+- **Coverage**: Aim to test edge cases, null states, and error handling, not just the "happy path".
