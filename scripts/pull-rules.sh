@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 STACK=$1
-REPO="https://github.com/demis/ai-agent-rules.git"
+REPO="https://github.com/d3m1s22/ai-agent-rules.git"
 
 if [ -z "$STACK" ]; then
   echo "Errore: Specifica lo stack desiderato."
